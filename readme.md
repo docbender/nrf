@@ -21,8 +21,8 @@ After project build file _zephyr.uf2_ will be located in _/build/zephyr/_ folder
 
 To flash UF2 file just copy file into Nice!Nano Adafruit bootloader mass storage. To flash UF2 file from VSCode custom flash task is necessary, because nRF Connect does not support UF2 runner.
 
-* First, create a batch file to copy UF2 image ([uf2_flash.cmd](uf2_flash.cmd) in this example). Place this file into project folder.
-* Second, create a new task for VSCode in _task.json_:
+* First, create a batch file to copy UF2 image ([uf2_flash.cmd](uf2_flash.cmd) in this example). Place this file into workspace folder.
+* Second, create a new task for VSCode in _task.json_ (located in .vscode folder of workspace):
 
 ```json
 {
@@ -31,7 +31,7 @@ To flash UF2 file just copy file into Nice!Nano Adafruit bootloader mass storage
         {
             "label": "UF2 Flash",
             "type": "shell",
-            "command": "./uf2_flash.cmd",
+            "command": "${workspaceFolder}/uf2_flash.cmd ${workspaceFolder}",
             "problemMatcher": [
                 {
                     "pattern": {
@@ -53,7 +53,7 @@ To flash UF2 file just copy file into Nice!Nano Adafruit bootloader mass storage
 }
 ```
 
-* Third, bind task to flash action by _Flash_ context menu _Bind task to action_ or by using _settings.json_ file:
+* Third, bind task to flash action by _Flash_ context menu _Bind task to action_ or by using _settings.json_ file (located in .vscode workspace folder):
 
 ```json
 {
