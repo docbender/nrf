@@ -115,3 +115,13 @@ Debugging via SWD pads.
 ### Dimensions
 
 ![Pin diagram](img/SuperMini_nrf52840_dimensions.jpg)
+
+### Board definition
+
+Board definition is located in repository folder _supermini_nrf52840_. To make definition available in _Build configuration_ of _nRF Connect_ as _Custom board_ add location where to look into _.settings.json_ file:
+```json
+{
+    "nrf-connect.boardRoots": [
+        "c:\\ncs"
+    ]
+}
