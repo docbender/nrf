@@ -1,6 +1,7 @@
  @ECHO OFF
 SETLOCAL
 SET target=e:\
+set arg1=%1
 
 echo UF2 flashing to %target% ...
 
@@ -11,6 +12,7 @@ IF EXIST %target% (
     exit /B
 )
 
-copy "build\zephyr\zephyr.uf2" %target%
+ECHO Copying file %arg1%\build\zephyr\zephyr.uf2...
+copy "%arg1%\build\zephyr\zephyr.uf2" %target%
 
 echo UF2 flash finished
